@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="ejs.js"></script>
+</head>
+<body>
+<h1>Welcome <%=firstName%><%=lastName%> </h1>
+//bar
+<h2>@<%=username%>, you are <%=100-points%> points away from getting a special prize!<h2>
+<div>
+
+
+<%=firstName%>
+<%=age%>
+<%=married%>
+<%=children%>
+<%=income%>
+<%=location%>
+<%=donations%>
+<%=points%>
+<%=purchases%>
+</div>
+
+<a href="/need">
+  <button type="button" class="red"> What do we need? </button>
+</a>
+
+<a href="/donate">
+  <button type="button" class="red"> Donate </button>
+</a>
+
+<a href="/purchase">
+  <button type="button" class="red"> Purchase </button>
+</a>
+<a href="/about_us">
+  <button type="button" class="red"> About Us </button>
+</a>
+
+</body>
+</html>
