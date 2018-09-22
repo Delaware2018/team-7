@@ -96,7 +96,6 @@ app.post("/register", function(req,res){
 	]
 
 	const Json2csvParser = require('json2csv').Parser;
-	const fields = "username";
 	const opts = {req.body.username};
 	try{
 		const parser = new Json2csvParser(opts);
