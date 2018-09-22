@@ -143,6 +143,10 @@ app.post("/register", function(req,res){
 app.get("/donate", function(req,res){
 	res.render("donate");
 });
+app.get("/purchase", function(req,res){
+	res.render("purchase");
+});
+
 
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
@@ -209,6 +213,13 @@ app.post("/updateuser", function(req, res){
 	//send them the json but first convert it to csv
 
 	res.send("user");
+});
+
+app.post("/donate", function(req, res){
+
+//add donation stats
+res.render("purchase");
+
 });
 
 app.listen(8080, function(){
