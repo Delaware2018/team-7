@@ -18,9 +18,14 @@ app.get("/login", function(req, res){
 
 app.post("/login", function(req, res){
 	res.send();
+	console.log("working");
 	//function to handle the username and password
 	var username = req.body.username;
 	var password = req.body.password;
+
+	function checkUser(username, password){
+		return true;
+	}
 	if (checkUser(username, password)){
 		res.redirect("/user")
 	} else {
