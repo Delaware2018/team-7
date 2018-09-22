@@ -4,8 +4,14 @@
   "description": "goodwill code4good challenge",
   "main": "app.js",
   "dependencies": {
+<<<<<<< HEAD
     "csvtojson": "^2.0.8",
     "express": "^4.16.3"
+=======
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.17"
+>>>>>>> 983df0483513a2a17b4a4ce541975126a9844f04
   },
   "devDependencies": {},
   "scripts": {
