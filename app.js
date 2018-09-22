@@ -32,7 +32,6 @@ app.get("/register", function(req, res){
 	res.render("register");
 });
 
-<<<<<<< HEAD
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
@@ -45,34 +44,35 @@ app.get("/about_us", function(req, res){
 
 app.get("/need", function(req, res){
 	res.render("need");
-
-app.get("/api/user", function(req, res){
-	console.log(res);
-	//register user with id of x
-	const user = {
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
-                    },
-					"GlossSee": "markup"
-                }
-            }
-        }
-    }
-};
-	res.send(8);
 });
+
+// app.get("/api/user", function(req, res){
+// 	console.log(res);
+// 	//register user with id of x
+// 	const user = {
+//     "glossary": {
+//         "title": "example glossary",
+// 		"GlossDiv": {
+//             "title": "S",
+// 			"GlossList": {
+//                 "GlossEntry": {
+//                     "ID": "SGML",
+// 					"SortAs": "SGML",
+// 					"GlossTerm": "Standard Generalized Markup Language",
+// 					"Acronym": "SGML",
+// 					"Abbrev": "ISO 8879:1986",
+// 					"GlossDef": {
+//                         "para": "A meta-markup language, used to create markup languages such as DocBook.",
+// 						"GlossSeeAlso": ["GML", "XML"]
+//                     },
+// 					"GlossSee": "markup"
+//                 }
+//             }
+//         }
+//     }
+// };
+// 	res.send(8);
+// });
 
 app.post("/updateuser", function(req, res){
 	console.log(req);
