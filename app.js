@@ -11,7 +11,7 @@ var express     = require("express"),
 	let fileInputName = 'users_file.csv';
 
 	let csvToJson = require('convert-csv-to-json');
-	csvToJson.fieldDelimiter(',') .getJsonFromCsv(fileInputName);
+	csvToJson.fieldDelimiter(',').getJsonFromCsv(fileInputName);
 
 
 
@@ -131,8 +131,8 @@ app.post("/register", function(req,res){
 
 	//writer.end();
 	console.log("after end");
-
-	var jsonResult = csvToJson.formatValueByType().getJsonFromCsv(fileInputName);
+	console.log(fileInputName);
+	var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
 	console.log(jsonResult);
 
 	res.redirect("login");
