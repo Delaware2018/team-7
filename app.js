@@ -3,6 +3,13 @@ var express     = require("express"),
 	mongoose	= require("mongoose")
 	bodyParser	= require("body-parser"),
 	router 		= express.Router();
+//	var Json2csvParser = require('json2csv').Parser;
+	var csvWriter = require('csv-write-stream');
+	var writer = csvWriter();
+	var fs = require('file-system');
+
+
+
 
 	var user1 = {
 
@@ -86,25 +93,31 @@ app.post("/register", function(req,res){
 	// var donations = req.body.donations;
 	// var points = req.body.points;
 	// var purchases = req.body.purchases;
-	const fields = ["username","password","firstname"];
-	const myStuff = [
-		{
-			"username":req.body.username,
-			"password":req.body.password,
-			"firstname":req.body.firstName
-		}
-	]
+writer.pipe(fs.createWriteStream('users_file.csv'));
+writer.write({	"firstName":req.body.firstName,
+	"lastName":req.body.lastName,
+	"age":req.body.age});
+	writer.end();
+// 	const fields = ["firstName","lastname","age"];
+// 	const myStuff =
+// [{
+// 			"firstName":req.body.firstName,
+// 			"lastName":req.body.lastName,
+// 			"age":req.body.age
+// 		}];
 
-	const Json2csvParser = require('json2csv').Parser;
-	try{
-		const parser = new Json2csvParser(opts);
-		const csv = parser.parse(users_file.csv);
-	}
-	catch(err)
-	{
-		console.error(err);
-	}
-	
+	console.log(myStuff);
+	// try{
+	// 	const parser = new Json2csvParser(fields);
+	// 	var csv = parser.parse(myStuff);
+	// 	console.log(csv);
+	// }
+	// catch(err)
+	// {
+	// 	console.error(err);
+	// }
+
+
 });
 
 app.get("/donate", function(req,res){

@@ -1,1 +1,2 @@
-name,username,password,married,children,income,location,donations,houseware,clothing,books,electronics,other,purchase,points
+firstName,lastName,age
+fkk,m,life
