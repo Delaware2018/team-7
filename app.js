@@ -4,44 +4,7 @@ var express     = require("express"),
 	bodyParser	= require("body-parser"),
 	router 		= express.Router();
 
-app.use(bodyParser.urlencoded({extended:true}));
-
-app.set('view engine', 'ejs');
-
-app.get("/", function(req, res){
-   	res.render("home");
-});
-
-app.get("/login", function(req, res){
-	res.render("login");
-});
-
-app.post("/login", function(req, res){
-	res.send();
-	console.log("working");
-	//function to handle the username and password
-	var username = req.body.username;
-	var password = req.body.password;
-
-	function checkUser(username, password){
-		return true;
-	}
-	if (checkUser(username, password)){
-		res.redirect("/user")
-	} else {
-		res.redirect("login");
-	}
-});
-
-app.get("/register", function(req, res){
-	res.render("register");
-});
-
-app.get("/user", function(req, res){
-	//suppose to check if user name is logged in
-	//should give user access to user webpage
-
-	const user1 = {
+	var user1 = {
 
 		username: "bobbym1",
 		password: "socks4ever",
@@ -75,8 +38,85 @@ app.get("/user", function(req, res){
 
 	}
 
+app.use(bodyParser.urlencoded({extended:true}));
 
-res.send(user1.firstName);
+app.set('view engine', 'ejs');
+
+app.get("/", function(req, res){
+   	res.render("home");
+});
+
+app.get("/login", function(req, res){
+	res.render("login");
+});
+
+app.post("/login", function(req, res){
+	res.send();
+	console.log("working");
+	//function to handle the username and password
+	var username = req.body.username;
+	var password = req.body.password;
+
+	function checkUser(username, password){
+		return true;
+	}
+	if (checkUser(username, password)){
+		console.log("working");
+		res.redirect("user");
+	} else {
+		res.redirect("login");
+	}
+});
+
+app.get("/register", function(req, res){
+	res.render("register");
+});
+
+app.post("/register", function(req,res){
+	res.send();
+	// var username = req.body.username;
+	// var password = req.body.password;
+	// var firstname = req.body.firstName;
+	// var lastname = req.body.lastName;
+	// var age = req.body.age;
+	// var married = req.body.married;
+	// var children = req.body.children;
+	// var income = req.body.income;
+	// var location = req.body.location;
+	// var donations = req.body.donations;
+	// var points = req.body.points;
+	// var purchases = req.body.purchases;
+	const fields = ["username","password","firstname"];
+	const myStuff = [
+		{
+			"username":req.body.username,
+			"password":req.body.password,
+			"firstname":req.body.firstName
+		}
+	]
+
+	const Json2csvParser = require('json2csv').Parser;
+	const fields = "username";
+	const opts = {req.body.username};
+	try{
+		const parser = new Json2csvParser(opts);
+		const csv = parser.parse(users_file.csv);
+	}
+	catch(err)
+	{
+		console.error(err);
+	}
+	}
+});
+
+app.get("/donate", function(req,res){
+	return 1415;
+});
+
+app.get("/user", function(req, res){
+	//suppose to check if user name is logged in
+	//should give user access to user webpage
+  res.send(user1.firstName);
 
 	res.render("user");
 });
