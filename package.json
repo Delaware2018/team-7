@@ -4,6 +4,7 @@
   "description": "goodwill code4good challenge",
   "main": "app.js",
   "dependencies": {
+    "csvtojson": "^2.0.8",
     "express": "^4.16.3"
   },
   "devDependencies": {},
