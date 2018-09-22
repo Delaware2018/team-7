@@ -62,8 +62,21 @@ app.get("/", function(req, res){
 });
 
 app.get("/login", function(req, res){
-	res.render("login");
+	res.render("login", {	username: user1.username,
+		password: user1.password,
+		firstName: user1.firstName,
+		lastName: user1.lastName,
+		age: user1.age,
+		married: user1.married,
+		children: user1.children,
+		income: user1.income,
+		location: user1.location,
+		donations: user1.donations,
+		points: user1.points,
+		purchases: user1.purchases
 });
+});
+
 
 app.post("/login", function(req, res){
 	res.send();
@@ -128,18 +141,33 @@ app.post("/register", function(req,res){
 });
 
 app.get("/donate", function(req,res){
-	return 1415;
+	res.render("donate");
 });
 
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
+<<<<<<< HEAD
 
 
 
   res.send(user1.name);
+=======
+>>>>>>> 2e06406d52fe2a784d7e0dc58233dd518ed0e92f
 
-	res.render("user");
+	res.render("user", {	username: user1.username,
+		password: user1.password,
+		firstName: user1.firstName,
+		lastName: user1.lastName,
+		age: user1.age,
+		married: user1.married,
+		children: user1.children,
+		income: user1.income,
+		location: user1.location,
+		donations: user1.donations,
+		points: user1.points,
+		purchases: user1.purchases
+});
 });
 
 app.get("/about_us", function(req, res){
