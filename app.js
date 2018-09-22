@@ -31,7 +31,7 @@ var express     = require("express"),
 		income: 40000,
 		location: "Wilmington, DE",
 		donations: 101,
-		points: 1414,
+		points: 60,
 		purchases: 20
 
 	}
@@ -79,21 +79,21 @@ app.get("/login", function(req, res){
 
 
 app.post("/login", function(req, res){
-	res.send();
-	console.log("working");
-	//function to handle the username and password
-	var username = req.body.username;
-	var password = req.body.password;
-
-	function checkUser(username, password){
-		return true;
-	}
-	if (checkUser(username, password)){
-		console.log("working");
+	// res.send();
+	// console.log("working");
+	// //function to handle the username and password
+	// var username = req.body.username;
+	// var password = req.body.password;
+	//
+	// function checkUser(username, password){
+	// 	return true;
+	// }
+	// if (checkUser(username, password)){
+	// 	console.log("working");
+	// 	res.redirect("user");
+	// } else {
 		res.redirect("user");
-	} else {
-		res.redirect("login");
-	}
+	// }
 });
 
 app.get("/register", function(req, res){
@@ -150,7 +150,7 @@ app.get("/user", function(req, res){
 
 
 
-  res.send(user1.name);
+  // res.send(user1.name);
 
 	res.render("user", {	username: user1.username,
 		password: user1.password,
