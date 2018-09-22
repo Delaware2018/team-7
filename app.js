@@ -3,7 +3,7 @@ var express     = require("express"),
 	mongoose	= require("mongoose")
 	bodyParser	= require("body-parser"),
 	router 		= express.Router();
-   
+
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.set('view engine', 'ejs');
@@ -35,6 +35,44 @@ app.get("/register", function(req, res){
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
+
+	const user1 = {
+
+		username: "bobbym1",
+		password: "socks4ever",
+		firstName: "Bobby",
+		lastName: "Morgan",
+		age: 20,
+		married: "Y",
+		children: 3,
+		income: 40000,
+		location: "Wilmington, DE",
+		donations: 101,
+		points: 1414,
+		purchases: 20
+
+	}
+
+	const user2 = {
+
+		username: "sallym1",
+		password: "boots4ever",
+		firstName: "Sally",
+		lastName: "Morgan",
+		age: 23,
+		married: "N",
+		children: 1,
+		income: 90000,
+		location: "San Francisco, CA",
+		donations: 28,
+		points: 364,
+		purchases: 45
+
+	}
+
+
+res.send(user1.firstName);
+
 	res.render("user");
 });
 
