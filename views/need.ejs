@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!--Need ie what item categories are in demand-->
 
 <head>
   <!-- Required meta tags -->
@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-  <title> Home Page </title>
+  <title> Need </title>
   <link rel="icon" href="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png">
 
 
@@ -21,7 +21,6 @@
       padding: 40px;
       padding-top: 0;
       padding-left: 35%;
-      font-size: 20px;
       font-weight: lighter;
   }
 
@@ -32,6 +31,45 @@
       background-color: rgb(220, 228, 234);
   }
 
+   #title_goodwill {
+    text-align: center;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 </style>
 
   <!--JavaScript-->
@@ -45,7 +83,7 @@
   		<h1 class="display-2 text-white pl-3 pt-3" style="font-family: Georgia;" id="title_goodwill"><strong>Goodwill<strong></h1>
   	</div>
 
-    <center><div id ="typed3"></div></center>
+    <center><div id ="typed3" font-size="50px"></div></center>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
 
@@ -58,5 +96,6 @@ var typed3 = new Typed('#typed3', {
     smartBackspace: true, // this is a default
     loop: true
   });
+  var needs;
 </script>
 </html>
