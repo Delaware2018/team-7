@@ -1,19 +1,50 @@
 var express     = require("express"),
 	app 		= express(),
-	mongoose	= require("mongoose");
-   app.set('view engine', 'ejs');
+	mongoose	= require("mongoose")
+	bodyParser	= require("body-parser"),
+	router 		= express.Router();
+   
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.set('view engine', 'ejs');
 
 app.get("/", function(req, res){
    	res.render("home");
-   });
+});
 
 app.get("/login", function(req, res){
 	res.render("login");
 });
 
+app.post("/login", function(req, res){
+	res.send();
+	//function to handle the username and password
+	var username = req.body.username;
+	var password = req.body.password;
+	if (checkUser(username, password)){
+		res.redirect("/user")
+	} else {
+		res.redirect("login");
+	}
+});
+
 app.get("/register", function(req, res){
 	res.render("register");
 });
+
+<<<<<<< HEAD
+app.get("/user", function(req, res){
+	//suppose to check if user name is logged in
+	//should give user access to user webpage
+	res.render("user");
+});
+
+app.get("/about_us", function(req, res){
+	res.render("about_us");
+});
+
+app.get("/need", function(req, res){
+	res.render("need");
 
 app.get("/api/user", function(req, res){
 	console.log(res);
