@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script src="ejs.js"></script>
+</head>
 <body>
   <h1>Login</h1>
   <form action="/login" method="POST">
@@ -7,7 +10,7 @@
     <input type="text" name="username"><br>
     Password<br>
     <input type="password" name="password">
-    <button type="submit">submit</button>
+    <button type="submit">submit<%=username%></button>
   </form>
 
 </body>
