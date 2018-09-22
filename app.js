@@ -8,6 +8,13 @@ var express     = require("express"),
 	var writer = csvWriter();
 
 	var fs = require('file-system');
+	let fileInputName = 'users_file.csv';
+
+	let csvToJson = require('convert-csv-to-json');
+	csvToJson.fieldDelimiter(',') .getJsonFromCsv(fileInputName);
+
+
+
 	writer.pipe(fs.createWriteStream('users_file.csv'));
 
 
@@ -108,9 +115,13 @@ app.post("/register", function(req,res){
 	});
 	//writer.end();
 	//writer.pipe(fs.createWriteStream('users_file.csv'));
-	
+
 	//writer.end();
 	console.log("after end");
+
+	var jsonResult = csvToJson.formatValueByType().getJsonFromCsv(fileInputName);
+	console.log(jsonResult);
+	
 	res.redirect("login");
 
 
@@ -123,7 +134,10 @@ app.get("/donate", function(req,res){
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
-  res.send(user1.firstName);
+
+
+
+  res.send(user1.name);
 
 	res.render("user");
 });
@@ -165,7 +179,10 @@ app.get("/need", function(req, res){
 // });
 
 app.post("/updateuser", function(req, res){
-	console.log(req);
+	//console.log(req);
+	//only uncomment once user page is finished
+	//send them the json but first convert it to csv
+
 	res.send("user");
 });
 
