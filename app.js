@@ -1,19 +1,20 @@
 var express     = require("express"),
 	app 		= express(),
 	mongoose	= require("mongoose");
-  app.engine('html', require('ejs').renderFile);
+   app.set('view engine', 'ejs');
 
-app.use("/", function(req, res){
-	res.render("home");
+app.get("/", function(req, res){
+   	res.render("home");
+   });
+
+app.get("/login", function(req, res){
+	res.render("login");
 });
 
-app.use("/login", function(req, res){
-	res.render(".views/login");
-});
-
-app.use("/register", function(req, res){
+app.get("/register", function(req, res){
 	res.render("register");
 });
+
 
 app.listen(8080, function(){
 	console.log("PORT = "+process.env.PORT);
