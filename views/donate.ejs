@@ -16,25 +16,57 @@
     <!--My CSS -->
     <style>
 
+    .options {
+        padding: 10px;
+    }
+
+    .boxcheck {
+        margin-right: 5px;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+    }
+
+
 	</style>
 
 <script src="ejs.js"></script>
 
 </head>
-<body>
+<body class="text-light pb-5" style="background-color: rgb(24, 84, 130)">
 
-    
+  <div class="col-lg-12 text-center p-1" style="background-color:rgb(15, 15, 15)">
+  <img class="img-left" style="width:140px; height: 130px; float: left" src="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png">
+  <h1 class="display-2 text-white pl-3 pt-3" style="font-family: Georgia;" id="title_goodwill"><strong>Goodwill<strong></h1>
+  </div>
+
+    <div style="margin-left: 30%; font-size: 30px; padding: 25px;">
     <form action="/donate" method="POST">
-  <fieldset>
-      <legend>What are you donating today?</legend>
-      <input type="radio" name="action" value="houseware" /><label for="houseware">Houseware</label><br />
-      <input type="radio" name="action" value="clothing"  /><label for="clothing">Clothing</label><br />
-      <input type="radio" name="action" value="books" /><label for="books">Books</label><br />
-      <input type="radio" name="action" value="electronics" /><label for="electronics">Electronics</label><br />
-      <input type="radio" name="action"  value="other"  /><label for="other">Other</label><br />
+        <fieldset>
+
+      <legend class="p-3 h1">What are you donating today?</legend>
+      <div class="options">
+      <input class="boxcheck" type="checkbox" name="action" value="houseware" /><label for="houseware">Houseware</label><br />
+        </div>
+        <div class="options">
+      <input class="boxcheck" type="checkbox" name="action" value="clothing"  /><label for="clothing">Clothing</label><br />
+      </div>
+      <div class="options">
+      <input class="boxcheck" type="checkbox" name="action" value="books" /><label for="books">Books</label><br />
+      </div>
+      <div class="options">
+      <input class="boxcheck" type="checkbox" name="action" value="electronics" /><label for="electronics">Electronics</label><br />
+      </div>
+      <div class="options">
+      <input class="boxcheck" type="checkbox" name="action"  value="other"  /><label for="other">Other</label><br />
+      </div>
+
       <button type="submit" class="btn btn-primary">Submit</button>
-  </fieldset>
-<form>
+
+        </fieldset>
+    <form>
+    </div>
+
 <!--Buttons to other pages-->
 <div class="row">
     <div class="col">
