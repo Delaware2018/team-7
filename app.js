@@ -1,13 +1,14 @@
 var express     = require("express"),
 	app 		= express(),
 	mongoose	= require("mongoose");
+  app.engine('html', require('ejs').renderFile);
 
 app.use("/", function(req, res){
 	res.render("home");
 });
 
 app.use("/login", function(req, res){
-	res.render("login");
+	res.render(".views/login");
 });
 
 app.use("/register", function(req, res){
