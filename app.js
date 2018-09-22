@@ -6,18 +6,14 @@ var express     = require("express"),
 //	var Json2csvParser = require('json2csv').Parser;
 	var csvWriter = require('csv-write-stream');
 	var writer = csvWriter();
-
+	const jsonfile = require('jsonfile')
 	var fs = require('file-system');
 	let fileInputName = 'users_file.csv';
-
+	const file = 'data.json'
 	let csvToJson = require('convert-csv-to-json');
 	csvToJson.fieldDelimiter(',').getJsonFromCsv(fileInputName);
 
-
-
 	writer.pipe(fs.createWriteStream('users_file.csv'));
-
-
 
 	var user1 = {
 
@@ -62,6 +58,9 @@ app.get("/", function(req, res){
 });
 
 app.get("/login", function(req, res){
+
+
+
 	res.render("login", {	username: user1.username,
 		password: user1.password,
 		firstName: user1.firstName,
@@ -101,7 +100,7 @@ app.get("/register", function(req, res){
 });
 
 app.post("/register", function(req,res){
-	res.send();
+
 	// var username = req.body.username;
 	// var password = req.body.password;
 	// var firstname = req.body.firstName;
@@ -114,18 +113,33 @@ app.post("/register", function(req,res){
 	// var donations = req.body.donations;
 	// var points = req.body.points;
 	// var purchases = req.body.purchases;
-	writer.write({
-		"firstName":req.body.firstName,
-		"lastName":req.body.lastName,
-		"age":req.body.age,
-		"phoneNumber":req.body.phoneNumber,
-		"username":req.body.username,
-		"password":req.body.password,
-		"city":req.body.city,
-		"children":req.body.children,
-		"married":req.body.married,
-		"income":req.body.income
+	obj = {
+			"firstName":req.body.firstName,
+			"lastName":req.body.lastName,
+			"age":req.body.age,
+			"phoneNumber":req.body.phoneNumber,
+			"username":req.body.username,
+			"password":req.body.password,
+			"city":req.body.city,
+			"children":req.body.children,
+			"married":req.body.married,
+			"income":req.body.income
+	}
+	jsonfile.writeFile(file, obj, function(err) {
+		if (err) console.log(err)
 	});
+	// writer.write({
+	// 	"firstName":req.body.firstName,
+	// 	"lastName":req.body.lastName,
+	// 	"age":req.body.age,
+	// 	"phoneNumber":req.body.phoneNumber,
+	// 	"username":req.body.username,
+	// 	"password":req.body.password,
+	// 	"city":req.body.city,
+	// 	"children":req.body.children,
+	// 	"married":req.body.married,
+	// 	"income":req.body.income
+	// });
 	//writer.end();
 	//writer.pipe(fs.createWriteStream('users_file.csv'));
 
@@ -151,25 +165,32 @@ app.get("/purchase", function(req,res){
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
-
-
+	var obj;
+	fs.readFile(file, 'utf8', function(err,data) {
+		if (err) throw err;
+		console.log("data");
+		obj = JSON.parse(data);
+		console.log(obj);
+		console.log(obj.username);
+		res.render("user", {	username: obj.username,
+			password: obj.password,
+			firstName: obj.firstName,
+			lastName: obj.lastName,
+			age: obj.age,
+			married: obj.married,
+			children: obj.children,
+			income: obj.income,
+			location: obj.location,
+			donations: obj.donations,
+			points: obj.points,
+			purchases: obj.purchases
+	});
+	});
 
   // res.send(user1.name);
-	var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
-	console.log(jsonResult[0]);
-	res.render("user", {	username: jsonResult[0].username,
-		password: jsonResult[0].password,
-		firstName: jsonResult[0].firstName,
-		lastName: jsonResult[0].lastName,
-		age: jsonResult[0].age,
-		married: jsonResult[0].married,
-		children: jsonResult[0].children,
-		income: jsonResult[0].income,
-		location: user1.location,
-		donations: user1.donations,
-		points: user1.points,
-		purchases: user1.purchases
-});
+	//var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
+	//console.log(jsonResult[0]);
+
 });
 
 app.get("/about_us", function(req, res){
