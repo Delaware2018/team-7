@@ -6,8 +6,9 @@ var express     = require("express"),
 //	var Json2csvParser = require('json2csv').Parser;
 	var csvWriter = require('csv-write-stream');
 	var writer = csvWriter();
-	var fs = require('file-system');
 
+	var fs = require('file-system');
+	writer.pipe(fs.createWriteStream('users_file.csv'));
 
 
 
@@ -93,29 +94,24 @@ app.post("/register", function(req,res){
 	// var donations = req.body.donations;
 	// var points = req.body.points;
 	// var purchases = req.body.purchases;
-writer.pipe(fs.createWriteStream('users_file.csv'));
-writer.write({	"firstName":req.body.firstName,
-	"lastName":req.body.lastName,
-	"age":req.body.age});
-	writer.end();
-// 	const fields = ["firstName","lastname","age"];
-// 	const myStuff =
-// [{
-// 			"firstName":req.body.firstName,
-// 			"lastName":req.body.lastName,
-// 			"age":req.body.age
-// 		}];
-
-	console.log(myStuff);
-	// try{
-	// 	const parser = new Json2csvParser(fields);
-	// 	var csv = parser.parse(myStuff);
-	// 	console.log(csv);
-	// }
-	// catch(err)
-	// {
-	// 	console.error(err);
-	// }
+	writer.write({
+		"firstName":req.body.firstName,
+		"lastName":req.body.lastName,
+		"age":req.body.age,
+		"phoneNumber":req.body.phoneNumber,
+		"username":req.body.username,
+		"password":req.body.password,
+		"city":req.body.city,
+		"children":req.body.children,
+		"married":req.body.married,
+		"income":req.body.income
+	});
+	//writer.end();
+	//writer.pipe(fs.createWriteStream('users_file.csv'));
+	
+	//writer.end();
+	console.log("after end");
+	res.redirect("login");
 
 
 });
