@@ -16,6 +16,55 @@
     <!--My CSS -->
     <style>
 
+    #tree_sketch_img {
+        margin-top: auto;
+        margin-bottom: auto;
+        position: absolute;
+        top: 50%;
+        width: 600px;
+        height: 600px;
+        margin-left: 28%;
+
+    }
+
+    img {
+        margin-left: 25%;
+        display: block;
+        margin: 4px;
+    }
+
+    #heart-path { /*div*/
+        width: 800px;
+        height: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #two_kids_img {
+        margin-left: 25%;
+    }
+
+    #stick_people_img {
+        width: 40%;
+        height: 0%;
+    }
+
+    #tree_img {
+        width: 120%;
+        height: 120%;
+
+    }
+
+    #earth_img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .row {
+        font-weight: lighter;
+    }
+
+
 	</style>
 
 <script src="ejs.js"></script>
@@ -37,20 +86,23 @@ bar.animate(.8);  // Number from 0.0 to 1.0
 
 <head>
 </head>
-<body class="text-light pb-5" style="background-color: rgb(24, 84, 130)">
+<body class="text-light font-weight-light pb-5" style="background-color: rgb(24, 84, 130)">
+
 
 	<div class="col-lg-12 text-center p-1" style="background-color:rgb(15, 15, 15)">
 		<img class="img-left" style="width:140px; height: 130px; float: left" src="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png">
 		<h1 class="display-2 text-white pl-3 pt-3" style="font-family: Georgia;" id="title_goodwill"><strong>Goodwill<strong></h1>
 	</div>
 
-    <div class="text-center p-4">
+    <div class="pt-5 text-center font-weight-normal">
     <h1>Welcome <%=firstName%> <%=lastName%>! </h1>
     </div>
 
+
+    <div id="progress_diagrams">
         <!--progress bar-->
         <!--BORROWED FROM https://jsfiddle.net/dnLLgm5o/7538/-->
-        <div id="heart-path" style="margin-left: auto; margin-right: auto;">
+        <div id="heart-path">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
                   <path fill-opacity="0" stroke-width="1" stroke="#bbb" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
                   <path id="heart-path" fill-opacity="0" stroke-width="3" stroke="#ED6A5A" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z"/>
@@ -58,14 +110,54 @@ bar.animate(.8);  // Number from 0.0 to 1.0
           </div>
         <!--progess bar end-->
 
+        <!--Tree should go inside heart-->
+        <img id="tree_sketch_img" src="https://www199.lunapic.com/editor/working/153760046089280725?4628570769">
+        <!--Tree pic end-->
+    </div>
 
-    <h2>@<%=username%>, you are <%=100-points%> points away from getting a special prize!<h2>
-    <div>
 
-    <h2> Your Impact <h2>
-    <p>
-      From your generosity, you've:<br> helped 2 children get school clothes <img src="http://www.clker.com/cliparts/5/J/2/O/2/n/children-md.png"> </br><br> 4 people get 1 hour of work training <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Friendly_stickman.svg/1280px-Friendly_stickman.svg.png"> </br> save 3 trees <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwj_qsL-k87dAhVLhuAKHcuvCBoQjRx6BAgBEAU&url=http%3A%2F%2Fbaby-boomers-guide.org%2F2015%2F04%2F03%2Fthe-three-trees-anonymous%2F&psig=AOvVaw2nkxv0gj_M_nCSmnNysFqP&ust=1537690052370259"> <br>made the world a better place to live in <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=2ahUKEwjC4qCGlM7dAhVEVd8KHW8KDlwQjRx6BAgBEAU&url=https%3A%2F%2Fwww.independent.co.uk%2Fnews%2Fscience%2Fflat-earth-explanation-astronomy-stuart-clark-planets-solar-system-universe-a8149266.html&psig=AOvVaw1-EG_7gBLdBFSDK06aolJv&ust=1537690071002125"></br>
-    <p>
+    <!--deleted @ in front of username-->
+    <div class="text-center h2">
+    <h2 class="h1 font-weight-normal pb-5"><%=username%>, you are <button type="button" class="btn bg-warning h1 p-3 m-2 btn-lg" style="font-size: 40px;"> <%=100-points%> </button> points away from getting a special prize!</h2>
+
+    <h3 class="py-5 mb-5 display-3 bg-secondary"> Your Impact </h3>
+    </div>
+
+    <div class="row mx-5">
+
+        <div class="col"
+
+          From your generosity, you've:<br> helped 2 children get school clothes
+          <img src="http://www.clker.com/cliparts/5/J/2/O/2/n/children-md.png" id="two_kids_img">
+        </br><br>
+        </div>
+        <div class="col">
+          4 people get 1 hour of work training
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Friendly_stickman.svg/1280px-Friendly_stickman.svg.png" id="stick_people_img">
+       </div>
+    </div>
+
+
+    <div class="row px-5">
+
+        <div class="col">
+            </br> saved 3 trees
+          <img src="http://baby-boomers-guide.org/wp-content/uploads/2015/04/3trees.jpg" id="trees_img">
+
+        </div>
+
+      <div class="col">
+          <br>made the world a better place to live in
+          <img src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/07/05/09/istock-175205370.jpg?w968" id="earth_img">
+      </div>
+    </br>
+
+
+    </div>
+
+
+    <!--User info-->
+
     <%=firstName%>
     <%=age%>
     <%=married%>
@@ -75,7 +167,12 @@ bar.animate(.8);  // Number from 0.0 to 1.0
     <%=donations%>
     <%=points%>
     <%=purchases%>
-    </div>
+
+
+    <!--End user info-->
+
+
+    <!--Buttons to other pages-->
 
     <a href="/need">
       <button type="button" class="btn btn-danger btn-lg"> What do we need? </button>
@@ -91,6 +188,8 @@ bar.animate(.8);  // Number from 0.0 to 1.0
     <a href="/about_us">
       <button type="button" class="btn btn-info btn-lg"> About Us </button>
     </a>
+
+
 
 </body>
 </html>
