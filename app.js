@@ -96,7 +96,6 @@ app.post("/register", function(req,res){
 	]
 
 	const Json2csvParser = require('json2csv').Parser;
-	const opts = {req.body.username};
 	try{
 		const parser = new Json2csvParser(opts);
 		const csv = parser.parse(users_file.csv);
@@ -105,7 +104,7 @@ app.post("/register", function(req,res){
 	{
 		console.error(err);
 	}
-	}
+	
 });
 
 app.get("/donate", function(req,res){
