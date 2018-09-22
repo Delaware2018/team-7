@@ -132,8 +132,8 @@ app.post("/register", function(req,res){
 	//writer.end();
 	console.log("after end");
 	console.log(fileInputName);
-	var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
-	console.log(jsonResult);
+	//var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
+	//console.log(jsonResult);
 
 	res.redirect("login");
 
@@ -155,15 +155,16 @@ app.get("/user", function(req, res){
 
 
   // res.send(user1.name);
-
-	res.render("user", {	username: user1.username,
-		password: user1.password,
-		firstName: user1.firstName,
-		lastName: user1.lastName,
-		age: user1.age,
-		married: user1.married,
-		children: user1.children,
-		income: user1.income,
+	var jsonResult = csvToJson.getJsonFromCsv(fileInputName);
+	console.log(jsonResult[0]);
+	res.render("user", {	username: jsonResult[0].username,
+		password: jsonResult[0].password,
+		firstName: jsonResult[0].firstName,
+		lastName: jsonResult[0].lastName,
+		age: jsonResult[0].age,
+		married: jsonResult[0].married,
+		children: jsonResult[0].children,
+		income: jsonResult[0].income,
 		location: user1.location,
 		donations: user1.donations,
 		points: user1.points,
