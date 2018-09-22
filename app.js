@@ -134,7 +134,7 @@ app.post("/register", function(req,res){
 
 	var jsonResult = csvToJson.formatValueByType().getJsonFromCsv(fileInputName);
 	console.log(jsonResult);
-	
+
 	res.redirect("login");
 
 
@@ -147,13 +147,10 @@ app.get("/donate", function(req,res){
 app.get("/user", function(req, res){
 	//suppose to check if user name is logged in
 	//should give user access to user webpage
-<<<<<<< HEAD
 
 
 
   res.send(user1.name);
-=======
->>>>>>> 2e06406d52fe2a784d7e0dc58233dd518ed0e92f
 
 	res.render("user", {	username: user1.username,
 		password: user1.password,
